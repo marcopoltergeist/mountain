@@ -1,0 +1,21 @@
+.home_page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.home_page > main > div > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .home_page {
+    background-image: url("../../assets/img_homepage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .home_page > main > div > img {
+    display: none;
+  }
+}
