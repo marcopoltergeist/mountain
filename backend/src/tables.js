@@ -4,10 +4,14 @@
 
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
+const ArticleManager = require("./models/ArticleManager");
+const ReaderManager = require("./models/ReaderManager");
 
 const managers = [
   ItemManager,
   // Add other managers here
+  ArticleManager,
+  ReaderManager,
 ];
 
 // Create an empty object to hold data managers for different tables

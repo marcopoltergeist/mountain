@@ -13,12 +13,11 @@ const articleMiddlewares = require("./middlewares/articleMiddlewares");
 const authMiddlewares = require("./services/auth");
 
 
-
-
 router.get("/items", itemControllers.browse);
 
 
 router.get("/items/:id", itemControllers.read);
+
 
 
 router.post("/items", itemControllers.add);
@@ -26,6 +25,16 @@ router.post("/items", itemControllers.add);
 
 
 router.get("/articles", authMiddlewares.verifyToken, articleControllers.browse);
+
+router.post("/items", itemControllers.add);
+
+
+
+
+router.get("/articles", authMiddlewares.verifyToken, articleControllers.browse);
+
+
+
 router.get("/articles/:id", articleControllers.read);
 
 
@@ -35,10 +44,21 @@ router.post(
   articleControllers.add
 );
 
+
 router.put("/articles/:id", articleControllers.update);
 
 
 router.delete("/articles/:id", articleControllers.destroy);
+
+
+
+
+
+
+router.put("/books/:id", articleControllers.update);
+
+
+router.delete("/books/:id", articleControllers.destroy);
 
 
 
