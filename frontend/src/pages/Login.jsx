@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useContext } from "react";
-// eslint-disable-next-line import/no-unresolved
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../services/UserContext";

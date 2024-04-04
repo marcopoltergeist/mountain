@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from "react";
-// eslint-disable-next-line import/no-unresolved
+
 import axios from "axios";
 
 export default function Register() {

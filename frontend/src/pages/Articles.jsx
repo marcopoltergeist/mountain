@@ -2,7 +2,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Article from "../components/Article";
 
 export default function Books() {
-  const article = useLoaderData();
+  const articles = useLoaderData();
 
   const navigate = useNavigate();
 
@@ -13,8 +13,8 @@ export default function Books() {
   return (
     <>
       <h1>Article montagne :</h1>
-      {article.map((book) => (
-        <Article key={book.id} book={book} refreshPage={refreshPage} />
+      {articles.map((article) => (
+        <Article key={article.id} book={article} refreshPage={refreshPage} />
       ))}
     </>
   );
