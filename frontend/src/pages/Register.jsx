@@ -20,8 +20,8 @@ export default function Register() {
     setUsername(event.target.value);
   };
 
-  const submitForm = (e) => {
-    e.preventDefault();
+  const submitForm = (event) => {
+    event.preventDefault();
     axios
       .post("http://localhost:3310/api/readers/", {
         email,
@@ -34,7 +34,7 @@ export default function Register() {
 
   return (
     <div>
-      <h1>Page register </h1>
+      <h1>Create account </h1>
       <form onSubmit={submitForm}>
         <label> Email </label>
         <input type="email" onChange={handleChangeEmail} />
