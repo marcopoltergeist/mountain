@@ -6,12 +6,13 @@ import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import Mountain from "./pages/Nav/Mountain";
-import Faq from "./pages/Nav/Faq";
-import Contact from "./pages/Nav/Contact";
-import Articles from "./pages/Nav/Articles";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import Forbidden from "./pages/Forbidden";
 import CreateArticle from "./pages/CreateArticle";
+import Articles from "./pages/Articles";
+
+import { UserProvider } from "./services/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -35,16 +36,12 @@ const router = createBrowserRouter([
     element: <CreateArticle />,
   },
   {
-    path: "/mountain",
-    element: <Mountain />,
+    path: "/register",
+    element: <Register />,
   },
   {
-    path: "/faq",
-    element: <Faq />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
@@ -52,6 +49,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
