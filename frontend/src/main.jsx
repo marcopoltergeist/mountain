@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from "axios";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
