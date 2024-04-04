@@ -1,7 +1,7 @@
 import React from "react";
 
-import TitleHome from "../components/component/TitleHome";
-import Nav from "../components/component/Nav";
+import TitleHome from "../components/home/TitleHome";
+import Nav from "../components/home/Nav";
 import Logo from "../components/Logo";
 
 import "../style/pages/HomePage.css";

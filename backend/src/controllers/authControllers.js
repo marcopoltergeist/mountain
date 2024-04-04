@@ -1,32 +1,28 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const argon2 = require("argon2");
-// eslint-disable-next-line import/no-extraneous-dependencies
 const jwt = require("jsonwebtoken");
-
 const tables = require("../tables");
 
 const login = async (req, res, next) => {
   try {
-    const user = await tables.user.readByEmailWithPassword(req.body.email);
+    const reader = await tables.reader.readByEmailWithPassword(req.body.email);
 
-    if (user.length === 0) {
+    if (reader.length === 0) {
       res.sendStatus(422);
     }
 
-    const verified = await argon2.verify(user[0].password, req.body.password);
+    const verified = await argon2.verify(reader[0].password, req.body.password);
 
     if (verified === true) {
       const token = await jwt.sign(
         {
-          sub: user[0].id,
-          email: user[0].email,
+          sub: reader[0].id,
+          email: reader[0].email,
         },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
         }
       );
-
       res
         .cookie("auth", token, {
           httpOnly: true,
@@ -34,9 +30,10 @@ const login = async (req, res, next) => {
         })
         .json({
           msg: "Connexion réussie",
-          username: user[0].username,
-          id: user[0].id,
-          email: user[0].email,
+          id: reader[0].id,
+          email: reader[0].email,
+          username: reader[0].username,
+          // token,
         });
     } else {
       res.sendStatus(422);
@@ -46,4 +43,20 @@ const login = async (req, res, next) => {
   }
 };
 
-module.exports = { login };
+const isAllowed = async (req, res, next) => {
+  try {
+    res.sendStatus(200);
+  } catch (err) {
+    next();
+  }
+};
+
+const disconnected = async (req, res, next) => {
+  try {
+    res.clearCookie("auth").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { login, disconnected, isAllowed };
