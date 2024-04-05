@@ -37,7 +37,7 @@ export default function Navbar() {
           <Link to="/">Accueil</Link>
         </li>
 
-        <li>{isConnected ? <Link to="/article">Article</Link> : null}</li>
+        <li>{isConnected ? <Link to="/articles">Article</Link> : null}</li>
         <li>
           {isConnected ? <Link to="/create">Créer un article</Link> : null}
         </li>
