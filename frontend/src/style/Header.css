@@ -1,6 +1,7 @@
 .header_home_page {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  margin: 1rem;
 }

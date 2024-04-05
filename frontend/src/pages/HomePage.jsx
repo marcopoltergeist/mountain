@@ -1,8 +1,8 @@
 import React from "react";
 
 import TitleHome from "../components/home/TitleHome";
-import Nav from "../components/home/Nav";
-import Logo from "../components/Logo";
+
+import Header from "../components/Header";
 
 import "../style/pages/HomePage.css";
 
@@ -11,10 +11,7 @@ import mountainBackground from "../assets/img_homepage.png";
 function HomePage() {
   return (
     <div className="home_page">
-      <header className="mobile_element">
-        <Logo />
-        <Nav />
-      </header>
+      <Header />
       <main>
         <div className="mobile_element">
           <img src={mountainBackground} alt="montagne-lac" />

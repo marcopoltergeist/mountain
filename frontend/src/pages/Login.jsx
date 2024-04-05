@@ -49,7 +49,7 @@ export default function Login() {
 
   return (
     <>
-      <h1> Log you here </h1>
+      <h1> Connection </h1>
       <form onSubmit={submitForm}>
         <label>
           Email
@@ -72,7 +72,7 @@ export default function Login() {
           />
         </label>
         <div className="buttonLogin_container">
-          <input type="submit" value="LOGIN" />
+          <input type="submit" value="Enter" />
         </div>
       </form>
     </>

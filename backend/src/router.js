@@ -69,31 +69,8 @@ router.get("/readers", readerControllers.browse);
 router.post("/readers", authMiddlewares.hashPassword, readerControllers.add);
 router.get("/readers/:id", readerControllers.read);
 
-=======
-
-router.put("/articles/:id", articleControllers.update);
 
 
-router.delete("/articles/:id", articleControllers.destroy);
-
-
-
-
-
-
-router.put("/articles/:id", articleControllers.update);
-
-
-router.delete("/articles/:id", articleControllers.destroy);
-
-
-
-
-router.get("/readers", readerControllers.browse);
-
-
-router.post("/readers", authMiddlewares.hashPassword, readerControllers.add);
-router.get("/readers/:id", readerControllers.read);
 
 
 

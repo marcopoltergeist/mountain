@@ -1,0 +1,16 @@
+nav > ul {
+  display: flex;
+  gap: 1rem;
+}
+
+nav > ul > li {
+  margin: 0.6rem;
+  cursor: pointer;
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+nav > ul > li > a {
+  color: white;
+  text-decoration: none;
+}
