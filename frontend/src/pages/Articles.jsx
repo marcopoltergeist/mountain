@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Article from "../components/Article";
 
-export default function Books() {
+export default function Articles() {
   const articles = useLoaderData();
 
   const navigate = useNavigate();

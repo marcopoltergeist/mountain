@@ -3,13 +3,11 @@ import { useState } from "react";
 // eslint-disable-next-line import/no-unresolved
 import axios from "axios";
 
-export default function CreateBook() {
+export default function CreateArticle() {
   const [form, setForm] = useState({
     title: "",
     summary: "",
     author: "",
-    // parutionYear: ""
-    // opinion: "",
   });
 
   const handleChangeForm = (event) => {
@@ -19,20 +17,20 @@ export default function CreateBook() {
     });
   };
 
-  const submitBook = (event) => {
+  const submitArticle = (event) => {
     event.preventDefault();
     console.info("Contenu du formulaire :", form);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/books/`, form)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
       .then((response) => console.info(response))
       .catch((err) => console.error(err));
   };
 
   return (
     <>
-      <h1>Créer une fiche de livre </h1>
-      <form onSubmit={submitBook}>
-        <label htmlFor="title">Titre du livre :</label>
+      <h1>Créer un article </h1>
+      <form onSubmit={submitArticle}>
+        <label htmlFor="title">Titre de l'article :</label>
         <input
           type="text"
           name="title"
@@ -46,17 +44,9 @@ export default function CreateBook() {
           onChange={handleChangeForm}
           id="author"
         />
-        <label htmlFor="summary">Résumé du livre :</label>
+        <label htmlFor="summary">Résumé de la randonnée: </label>
         <textarea name="summary" onChange={handleChangeForm} id="summary" />
-        {/* <label htmlFor="date">Année de parution :</label>
-        <input
-          type="number"
-          name="parutionYear"
-          onChange={handleChangeForm}
-          id="number"
-        /> */}
-        {/* <label htmlFor="note"> Notes sur le livre :</label>
-        <input type="text" name="note" onChange={handleChangeForm} id="note" /> */}
+
         <input type="submit" />
       </form>
     </>
