@@ -7,7 +7,7 @@ export default function Books() {
   const navigate = useNavigate();
 
   const refreshPage = () => {
-    navigate("/article", { replace: true });
+    navigate("/articles", { replace: true });
   };
 
   return (

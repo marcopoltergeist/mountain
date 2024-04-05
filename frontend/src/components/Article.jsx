@@ -19,9 +19,7 @@ export default function Book({ article, refreshPage }) {
         summary: updatedSummary,
       })
       .then(() => refreshPage(), setIsEditing(false))
-      .catch((error) =>
-        console.error("erreur lors de la mise à jour du livre:", error)
-      );
+      .catch((error) => console.error("error update article", error));
   };
 
   // fonction pour supprimer un livre
@@ -35,10 +33,9 @@ export default function Book({ article, refreshPage }) {
   return (
     <article>
       {isEditing ? (
-        // Afficher le formulaire de modification
         <div>
           <label>
-            Titre
+            Title
             <input
               type="text"
               value={updatedTitle}
@@ -46,35 +43,34 @@ export default function Book({ article, refreshPage }) {
             />
           </label>
           <label>
-            Auteur
+            Author
             <input
               type="text"
               value={updatedAuthor}
-              onChange={(e) => setUpdatedAuthor(e.target.value)}
+              onChange={(event) => setUpdatedAuthor(event.target.value)}
             />
           </label>
           <label>
             Summary
             <textarea
               value={updatedSummary}
-              onChange={(e) => setUpdatedSummary(e.target.value)}
+              onChange={(event) => setUpdatedSummary(event.target.value)}
             />
           </label>
           <button type="button" onClick={handleUpdate}>
-            Enregistrer les modifications
+            Recoder modification
           </button>
         </div>
       ) : (
-        // Afficher les informations du livre
         <div>
           <h3>{article.title}</h3>
           <h4>{article.author}</h4>
           <p>{article.summary}</p>
           <button type="button" onClick={handleDelete}>
-            Supprimer le livre de la liste
+            Deleted article
           </button>
           <button type="button" onClick={() => setIsEditing(true)}>
-            Modifier ce livre
+            Update article
           </button>
         </div>
       )}
