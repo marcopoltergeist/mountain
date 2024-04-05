@@ -1,8 +1,8 @@
 import React from "react";
 
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
-import "../style/Logo.css";
+import "../../style/Logo.css";
 
 function Logo() {
   return <img src={logo} alt="logo-site" />;

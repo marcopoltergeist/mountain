@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../services/UserContext";
 
+import "../../style/Nav.css";
+
 export default function Navbar() {
   const { reader, setReader } = useContext(UserContext);
 
@@ -30,19 +32,27 @@ export default function Navbar() {
 
   return (
     <nav>
-      <Link to="/">Accueil</Link>
-      {/* pour les pages Books et CreateBook se débloquent et apparaissent à la connexion */}
-      {isConnected ? <Link to="/books">Books</Link> : null}
-      {isConnected ? <Link to="/create">Créer un livre</Link> : null}
-      {/* pour les pages Register et Login accessiblent si pas connecté et une fois connecté, disparaissent */}
-      {!isConnected ? <Link to="/register">Créer un compte</Link> : null}
-      {!isConnected ? <Link to="/login">Se connecter</Link> : null}
-      {/* le bouton permettant de se logout n'est dispo qu'une fois connecté */}
-      {isConnected ? (
-        <Link to="/" onClick={handleLogout}>
-          log Out
-        </Link>
-      ) : null}
+      <ul>
+        <li>
+          <Link to="/">Accueil</Link>
+        </li>
+
+        <li>{isConnected ? <Link to="/article">Article</Link> : null}</li>
+        <li>
+          {isConnected ? <Link to="/create">Créer un article</Link> : null}
+        </li>
+        <li>
+          {!isConnected ? <Link to="/register">Créer un compte</Link> : null}
+        </li>
+        <li>{!isConnected ? <Link to="/login">Se connecter</Link> : null}</li>
+        <li>
+          {isConnected ? (
+            <Link to="/" onClick={handleLogout}>
+              Disconnect
+            </Link>
+          ) : null}
+        </li>
+      </ul>
     </nav>
   );
 }
